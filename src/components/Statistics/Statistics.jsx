@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+// import styles from './Statistics.module.css';
 
 const Statistics = () => {
   return (
