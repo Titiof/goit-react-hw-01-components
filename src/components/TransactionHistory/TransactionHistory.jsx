@@ -1,31 +1,38 @@
-import React from 'react';
-// import styles from './TransactionHistory.module.css';
+import styles from './TransactionHistory.module.css';
 
-export const TransactionHistory = () => {
+const TransactionHistoryItem = ({ type, amount, currency }) => {
   return (
-    <div>
-      <table class="transaction-history">
-        <thead>
-          <tr>
-            <th>Type</th>
-            <th>Amount</th>
-            <th>Currency</th>
-          </tr>
-        </thead>
+    <tr className={styles.list}>
+      <td className={styles.item}>{type}</td>
+      <td className={styles.item}>{amount}</td>
+      <td className={styles.item}>{currency}</td>
+    </tr>
+  );
+};
 
-        <tbody>
-          <tr>
-            <td>Invoice</td>
-            <td>125</td>
-            <td>USD</td>
-          </tr>
-          <tr>
-            <td>Withdrawal</td>
-            <td>85</td>
-            <td>USD</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+export const TransactionHistory = ({ items }) => {
+  return (
+    <table className={styles.transactionHistory}>
+      <thead className={styles.table}>
+        <tr className={styles.tabTitle}>
+          <th className={styles.titleItem}>Type</th>
+          <th className={styles.titleItem}>Amount</th>
+          <th className={styles.titleItem}>Currency</th>
+        </tr>
+      </thead>
+
+      <tbody className={styles.transactionTable}>
+        {items.map(item => {
+          return (
+            <TransactionHistoryItem
+              key={item.id}
+              type={item.type}
+              amount={item.amount}
+              currency={item.currency}
+            />
+          );
+        })}
+      </tbody>
+    </table>
   );
 };
