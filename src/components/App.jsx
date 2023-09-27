@@ -11,10 +11,14 @@ import data from './Statistics/data.json';
 export const App = () => {
   return (
     <>
-      <Profile {...user} />
-      <Statistics title="Upload stats" stats={data} />
-      <FriendList friends={friends} />
-      <TransactionHistory items={transactions} />;
+      <div>
+        <div>
+          <Profile {...user} />
+          <Statistics title="Upload stats" stats={data} />
+        </div>
+        <FriendList friends={friends} />
+      </div>
+      <TransactionHistory items={transactions} />
     </>
   );
 };

@@ -1,4 +1,5 @@
 .transactionHistory {
+  margin: 20px 0;
   table-layout: fixed;
   width: 600px;
   border-collapse: collapse;
